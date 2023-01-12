@@ -3,6 +3,6 @@
 public class OriginDTO
 {
     public string Name { get; set; } = String.Empty;
-    public string Type { get; set; } = String.Empty;
-    public string Dimension { get; set; } = String.Empty;
+    public string LocationType { get; set; } = String.Empty;
+    public string LocationDimension { get; set; } = String.Empty;
 }
