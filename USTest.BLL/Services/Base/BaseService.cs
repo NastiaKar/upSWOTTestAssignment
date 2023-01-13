@@ -1,13 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿using AutoMapper;
+using Newtonsoft.Json;
 
 namespace USTest.BLL.Services.Base;
 
 public abstract class BaseService
 {
     private readonly HttpClient _client;
+    private readonly IMapper _mapper;
 
-    protected BaseService(string baseAddress)
+    protected BaseService(IMapper mapper, string baseAddress)
     {
+        _mapper = mapper;
+        
         _client = new HttpClient
         {
             BaseAddress = new Uri(baseAddress)
