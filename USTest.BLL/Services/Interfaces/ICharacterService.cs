@@ -5,5 +5,5 @@ namespace USTest.BLL.Services.Interfaces;
 
 public interface ICharacterService
 {
-    Task<CharacterDTO> GetCharacter(string name);
+    Task<IEnumerable<CharacterDTO>> GetCharacter(string name);
 }
