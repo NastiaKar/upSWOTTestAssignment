@@ -24,16 +24,23 @@ public class CharacterLocationController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetCharacter(string name)
     {
-        //return Ok(await _charService.GetCharacter("Morty"));
-        var characters = await _charService.GetCharacter(name);
-
-        foreach (var character in characters)
+        try
         {
-            var locationId = StringExtensions.GetLocationId(character.Location.Url);
-            var location = await _locationService.GetLocation(locationId);
-            character.Location = location;
-        }
+            var characters = await _charService.GetCharacter(name);
 
-        return Ok(_mapper.Map<IEnumerable<CharacterDTO>>(characters));
+            foreach (var character in characters)
+            {
+                var locationId = StringExtensions.GetLocationId(character.Location.Url);
+                var location = await _locationService.GetLocation(locationId);
+                character.Location = location;
+            }
+
+            return Ok(_mapper.Map<IEnumerable<CharacterDTO>>(characters));
+        }
+        catch (Exception)
+        {
+            return NotFound("Character not found.");
+            
+        }
     }
 }
