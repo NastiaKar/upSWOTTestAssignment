@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(CharacterProfile)));
 builder.Services.AddScoped<ICharacterService, CharacterService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<IEpisodeService, EpisodeService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
