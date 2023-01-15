@@ -4,7 +4,7 @@ namespace USTest.BLL.Extensions;
 
 public static class StringExtensions
 {
-    public static int GetLocationId(this string url)
+    public static int GetIdFromUrl(this string url)
     {
         Regex regex = new Regex(@"\d*$");
          if (regex.Match(url).Value == "")
