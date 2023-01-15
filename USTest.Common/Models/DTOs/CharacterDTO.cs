@@ -8,5 +8,5 @@ public class CharacterDTO
     public string Species { get; set; } = String.Empty;
     public string Type { get; set; } = String.Empty;
     public string Gender { get; set; } = String.Empty;
-    public OriginDTO Origin { get; set; } = null!;
+    public LocationDTO Origin { get; set; } = null!;
 }
