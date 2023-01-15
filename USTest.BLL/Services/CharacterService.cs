@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using USTest.BLL.Extensions;
 using USTest.BLL.Services.Base;
 using USTest.BLL.Services.Interfaces;
 using USTest.Common.Models.Domain;
@@ -18,6 +19,7 @@ public class CharacterService : BaseService, ICharacterService
     
     public async Task<IEnumerable<Character>> GetCharacter(string name)
     {
+        var splitName = name.ReplaceSpaceInString();
         var response = await Get<CharacterSearchResponse>($"?name={name}");
         if (response == null || !response.Results.Any())
             throw new Exception("Characters not found");

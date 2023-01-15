@@ -30,7 +30,7 @@ public class CharacterLocationController : ControllerBase
 
             foreach (var character in characters)
             {
-                var locationId = StringExtensions.GetLocationId(character.Location.Url);
+                var locationId = character.Location.Url.GetLocationId();
                 var location = await _locationService.GetLocation(locationId);
                 character.Location = location;
             }
