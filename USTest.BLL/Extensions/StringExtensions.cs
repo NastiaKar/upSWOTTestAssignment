@@ -7,7 +7,8 @@ public static class StringExtensions
     public static int GetLocationId(string url)
     {
         Regex regex = new Regex(@"\d*$");
-        int id = Convert.ToInt32(regex.Match(url).Value);
-        return id;
+         if (regex.Match(url).Value == "")
+             return 0;
+        return Convert.ToInt32(regex.Match(url).Value);
     }
 }
