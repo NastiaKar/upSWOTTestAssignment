@@ -10,4 +10,5 @@ public class Character : BaseEntity
     public string Type { get; set; } = String.Empty;
     public string Gender { get; set; } = String.Empty;
     public Location Location { get; set; } = null!;
+    public IEnumerable<string> Episode { get; set; } = null!;
 }
