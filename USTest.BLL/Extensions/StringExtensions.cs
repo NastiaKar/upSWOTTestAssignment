@@ -11,9 +11,4 @@ public static class StringExtensions
              return 0;
         return Convert.ToInt32(regex.Match(url).Value);
     }
-
-    public static string ReplaceSpaceInString(this string str)
-    {
-        return str.Replace(" ", "%20");
-    }
 }

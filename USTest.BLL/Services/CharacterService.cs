@@ -19,7 +19,6 @@ public class CharacterService : BaseService, ICharacterService
     
     public async Task<IEnumerable<Character>> GetCharacter(string name)
     {
-        var splitName = name.ReplaceSpaceInString();
         var response = await Get<CharacterSearchResponse>($"?name={name}");
         if (response == null || !response.Results.Any())
             throw new Exception("Characters not found");
