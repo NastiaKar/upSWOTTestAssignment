@@ -16,12 +16,12 @@ public class CharacterService : BaseService, ICharacterService
         _mapper = mapper;
     }
     
-    public async Task<IEnumerable<CharacterDTO>> GetCharacter(string name)
+    public async Task<IEnumerable<Character>> GetCharacter(string name)
     {
         var response = await Get<CharacterSearchResponse>($"?name={name}");
         if (response == null || !response.Results.Any())
             throw new Exception("Characters not found");
 
-        return _mapper.Map<IEnumerable<CharacterDTO>>(response.Results);
+        return response.Results;
     }
 }
