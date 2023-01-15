@@ -18,8 +18,6 @@ public class LocationService : BaseService, ILocationService
     public async Task<Location> GetLocation(int id)
     {
         var response = await Get<Location>(id.ToString());
-        if (response is { Id: 0 })
-            throw new Exception("Location not found");
 
         return response;
     }
